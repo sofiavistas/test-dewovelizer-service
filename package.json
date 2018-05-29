@@ -1,0 +1,15 @@
+{
+  "name": "test-devowelizer-service",
+  "version": "1.0.0",
+  "description": "Casumo Devowelizer Service",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "newman run tests/test-devowelizer-service.postman_collection.json"
+  },
+  "author": "Sofia Vistas",
+  "dependencies": {
+    "newman": "^3.9.4"
+  }
+}

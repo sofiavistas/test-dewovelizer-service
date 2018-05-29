@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "000472cb-096c-42f7-9d01-82403f273d39",
+		"name": "test-devowelizer-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "all lower case",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9464988e-d8fa-4bbb-9c81-f48a321b65e0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Devowelizes word with all lower case characters\", function () {",
+							"    pm.response.to.have.body(\"csm\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:8080/casumo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"casumo"
+					]
+				},
+				"description": "Tests for only lower case"
+			},
+			"response": []
+		},
+		{
+			"name": "all upper case",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e8e36b6-30f0-4f5c-9840-38127319c806",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Devowelizes word with all upper case characters\", function () {",
+							"    pm.response.to.have.body(\"NCRN\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:8080/UNICORN",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"UNICORN"
+					]
+				},
+				"description": "Test for all upper case characters"
+			},
+			"response": []
+		},
+		{
+			"name": "mixed upper and lower case",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c0c0c60f-f848-451c-b4fc-e0c1d91a9d1b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Devowelizes word with mixed upper and lower case characters\", function () {",
+							"    pm.response.to.have.body(\"bbB\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:8080/AbAabB",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"AbAabB"
+					]
+				},
+				"description": "Tests for mixed lower and upper case characters"
+			},
+			"response": []
+		},
+		{
+			"name": "response time",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "393d5a27-02fa-4ffc-8718-46b93c80179b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:8080/casumo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"casumo"
+					]
+				},
+				"description": "Tests for performance of endpoint response"
+			},
+			"response": []
+		}
+	]
+}
